@@ -27,7 +27,7 @@ class ButtonAppWidget extends StatelessWidget {
         child: Text(
           labelButton,
           style: themeProvider.theme.textTheme.displayLarge
-              ?.copyWith(color: AppTheme.colorPrimaryDarkTheme),
+              ?.copyWith(color: themeProvider.theme.primaryColor),
         ));
   }
 }

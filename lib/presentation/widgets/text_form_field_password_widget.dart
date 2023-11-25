@@ -37,7 +37,7 @@ class FormBuilderTextFieldPasswordWidget extends StatelessWidget {
         if (formKey.currentState!.saveAndValidate()) {}
       },
       controller: phoneController,
-      style: themeProvider.theme.textTheme.displayLarge?.copyWith(fontSize: 24),
+      style: themeProvider.theme.textTheme.displayLarge,
       decoration: InputDecoration(
           hintText: labelText,
           suffixIcon: Padding(

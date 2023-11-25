@@ -35,7 +35,7 @@ class FormBuilderTextFieldWidget extends StatelessWidget {
         if (formKey.currentState!.saveAndValidate()) {}
       },
       controller: phoneController,
-      style: themeProvider.theme.textTheme.displayLarge?.copyWith(fontSize: 24),
+      style: themeProvider.theme.textTheme.displayLarge,
       decoration: InputDecoration(
           hintText: labelText,
           prefixIcon: Padding(
@@ -54,6 +54,10 @@ class FormBuilderTextFieldWidget extends StatelessWidget {
         ),
         FormBuilderValidators.numeric(
           errorText: 'El campo debe ser Numerico',
+        ),
+        FormBuilderValidators.minLength(
+          10,
+          errorText: 'El telefono debe contener minimo 10 numeros',
         ),
       ]),
     );

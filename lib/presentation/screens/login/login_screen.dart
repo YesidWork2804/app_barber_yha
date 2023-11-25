@@ -1,8 +1,11 @@
 import 'package:app_barber_yha/app/theme/app_theme.dart';
+import 'package:app_barber_yha/infrasctructure/models/usuario_login_response.dart';
+import 'package:app_barber_yha/infrasctructure/services/firebase_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:provider/provider.dart';
 
+import '../../../infrasctructure/services/administrador_service.dart';
 import '../../providers/providers.dart';
 import '../../widgets/widgets.dart';
 
@@ -84,9 +87,31 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 const SizedBox(height: 147),
-                const ButtonAppWidget(
+                ButtonAppWidget(
+                  fuction: () {
+                    if (formKey.currentState!.validate()) {
+                      FirebaseService()
+                          .logout(
+                              clave: passwordController.text,
+                              telefono: phoneController.text)
+                          .then((value) {
+                        if (value) {
+                          FirebaseService().authenticateWithPhoneNumber(
+                              phoneController.text);
+                        } else {
+                          print('No existe ese numero');
+                        }
+
+                        // if (value == true) {
+                        //   FirebaseService()
+                        //       .getRol(telefono: phoneController.text);
+                        // }
+                      });
+                      // FirebaseService().getRol();
+                    }
+                  },
                   labelButton: 'Entrar',
-                )
+                ),
               ],
             ),
           ),
