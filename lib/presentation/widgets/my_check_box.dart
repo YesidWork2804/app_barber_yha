@@ -3,8 +3,6 @@ import 'package:app_barber_yha/presentation/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/app/providers_app.dart';
-
 class MyChechBox extends StatelessWidget {
   const MyChechBox({Key? key}) : super(key: key);
 

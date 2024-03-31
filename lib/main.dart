@@ -1,19 +1,10 @@
+import 'package:app_barber_yha/app/router/routes_app.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-//Importaciones Firebase
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
-
-import 'presentation/providers/app/providers_app.dart';
-import 'presentation/providers/theme/app_theme_provider.dart';
-import 'presentation/screens/login/login_screen.dart';
+import 'presentation/providers/providers.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   runApp(
     MultiProvider(
       providers: [
@@ -35,9 +26,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<AppThemeProvider>(context);
 
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: themeProvider.theme,
-        home: const LoginScreen());
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      theme: themeProvider.theme,
+      routerConfig: goRouter,
+      // Proporciona la configuración requerida para la navegación web
+    );
   }
 }

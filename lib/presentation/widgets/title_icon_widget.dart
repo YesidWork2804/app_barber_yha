@@ -12,7 +12,8 @@ class TitleIconWidget extends StatelessWidget {
 
     return Image.asset(
       'assets/img/titulo.png',
-      height: 220,
+      height: 180,
+      width: 180,
       color: themeProvider.theme.primaryColor,
     );
   }
