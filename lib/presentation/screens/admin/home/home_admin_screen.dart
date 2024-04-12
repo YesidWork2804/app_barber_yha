@@ -1,12 +1,11 @@
 import 'package:app_barber_yha/app/router/routes_app.dart';
-import 'package:app_barber_yha/app/theme/app_theme.dart';
 import 'package:app_barber_yha/presentation/screens/admin/home/widget/card_admin.dart';
-import 'package:app_barber_yha/presentation/widgets/title_icon_widget.dart';
+import 'package:app_barber_yha/presentation/screens/profile/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../../providers/theme/app_theme_provider.dart';
 import '../../../widgets/widgets.dart';
+import '../admin_barber/admin_barber.dart';
+import '../inventory/screens/inventory_home_screen.dart';
 
 class HomeAdminScreen extends StatefulWidget {
   const HomeAdminScreen({Key? key}) : super(key: key);
@@ -35,9 +34,14 @@ class _LoginScreenState extends State<HomeAdminScreen> {
             children: [
               Positioned(
                   top: 20,
-                  left: 20,
-                  child: MyIconUserWidget(
-                    fuction: () {},
+                  right: 20,
+                  child: MyIconAppWidget(
+                    fuction: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ProfileScreen()));
+                    },
                     icon: Icons.account_circle_rounded,
                   )),
               Column(children: [
@@ -53,13 +57,25 @@ class _LoginScreenState extends State<HomeAdminScreen> {
                     children: [
                       CardAdmin(
                         text: 'Personal',
-                        image: 'logo_barberos.png',
-                        onTap: () {},
+                        image: 'personal.png',
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const AdminBarbersScreen()));
+                        },
                       ),
                       CardAdmin(
                         text: 'Inventario',
                         image: 'logo_inventario.png',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const InventoryHomeScreen()));
+                        },
                       ),
                       CardAdmin(
                         text: 'Clientes',
@@ -68,7 +84,7 @@ class _LoginScreenState extends State<HomeAdminScreen> {
                       ),
                       CardAdmin(
                         text: 'Agendar Turno',
-                        image: 'logo_agendarTurno.png',
+                        image: 'agendar_2.png',
                         onTap: () {},
                       ),
                       CardAdmin(

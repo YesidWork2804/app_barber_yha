@@ -11,6 +11,8 @@ final goRouter = GoRouter(
     GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
 
     // Rutas Admin
-    routesAdmin
+    routesAdmin,
+    routesBarberAdmin,
+    // routesBarberAdminBarberId
   ],
 );

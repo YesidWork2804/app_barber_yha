@@ -13,7 +13,7 @@ class MyChechBox extends StatelessWidget {
 
     return Checkbox(
         activeColor: AppTheme.colorButton,
-        checkColor: themeProvider.theme.primaryColor,
+        checkColor: themeProvider.theme.colorScheme.background,
         value: appProvider.checkBoxCheked,
         onChanged: (bool? value) {
           appProvider.toggleVisibilityCheckBox();

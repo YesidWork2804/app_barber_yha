@@ -18,7 +18,8 @@ class ButtonAppWidget extends StatelessWidget {
     return ElevatedButton(
         onPressed: fuction,
         style: ElevatedButton.styleFrom(
-          minimumSize: const Size(179, 58),
+          minimumSize: const Size(175, 55),
+          maximumSize: const Size(240, 90),
           backgroundColor: AppTheme.colorButton, // Color de fondo del botón
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0), // Borde redondeado
@@ -26,8 +27,9 @@ class ButtonAppWidget extends StatelessWidget {
         ),
         child: Text(
           labelButton,
-          style: themeProvider.theme.textTheme.displayLarge
-              ?.copyWith(color: themeProvider.theme.primaryColor),
+          style: themeProvider.theme.textTheme.displayLarge?.copyWith(
+            color: themeProvider.theme.colorScheme.background,
+          ),
         ));
   }
 }

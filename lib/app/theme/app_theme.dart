@@ -27,10 +27,27 @@ class AppTheme {
         fontWeight: FontWeight.bold,
         fontFamily: "Poppins",
       ),
-      bodySmall: TextStyle(
+      bodyMedium: TextStyle(
         fontSize: 18,
         color: Color(0xff1A1A1A), // Color del texto en modo claro
         fontFamily: "Poppins",
+        fontWeight: FontWeight.bold,
+      ),
+      bodySmall: TextStyle(
+        fontSize: 14,
+        color: Color(0xff1A1A1A), // Color del texto en modo claro
+        fontFamily: "Poppins",
+      ),
+      bodyLarge: TextStyle(
+        fontSize: 20,
+        color: Color(0xff1A1A1A), // Color del texto en modo claro
+        fontFamily: "Poppins",
+      ),
+      titleLarge: TextStyle(
+        fontSize: 40,
+        color: Color(0xff1A1A1A), // Color del texto en modo claro
+        fontWeight: FontWeight.bold,
+        fontFamily: "Jolly_Lodger",
       ),
     ),
 
@@ -50,10 +67,27 @@ class AppTheme {
         fontWeight: FontWeight.bold,
         fontFamily: "Poppins",
       ),
-      bodySmall: TextStyle(
+      bodyMedium: TextStyle(
         fontSize: 18,
+        fontWeight: FontWeight.bold,
         color: Color(0xffEAE7E1), // Color del texto en modo claro
         fontFamily: "Poppins",
+      ),
+      bodySmall: TextStyle(
+        fontSize: 14,
+        color: Color(0xffEAE7E1), // Color del texto en modo claro
+        fontFamily: "Poppins",
+      ),
+      bodyLarge: TextStyle(
+        fontSize: 20,
+        color: Color(0xffEAE7E1), // Color del texto en modo claro
+        fontFamily: "Poppins",
+      ),
+      titleLarge: TextStyle(
+        fontSize: 50,
+        color: Color(0xffEAE7E1), // Color del texto en modo claro
+        fontWeight: FontWeight.bold,
+        fontFamily: "Jolly_Lodger",
       ),
       // Agregar más estilos de texto según sea necesario
     ),

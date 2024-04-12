@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/theme/app_theme_provider.dart';
+import '../../providers/theme/app_theme_provider.dart';
 
 class TitleIconWidget extends StatelessWidget {
   const TitleIconWidget({Key? key}) : super(key: key);
