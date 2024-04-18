@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/theme/app_theme_provider.dart';
-import 'info_food_drinks_widget.dart';
+import 'inventory_widgets.dart';
 
 class ContainerFoodDrinkWidget extends StatelessWidget {
   final String foto;

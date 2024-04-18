@@ -1,23 +1,21 @@
 import 'package:app_barber_yha/presentation/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../../../infrasctructure/repositories/barbers/barber_repository.dart';
+import '../../../../../../infrasctructure/repositories/barbers/barber_repository.dart';
 import '../../home/home_admin_screen.dart';
-import '../../widgets/containers_home_widget.dart';
-import '../../widgets/icon_inventory_widget.dart';
-import 'food_drink/food_drink_screen.dart';
-import 'products/products_screen.dart';
+import '../../inventory/widgets/inventory_widgets.dart';
+import 'info_sales_screen.dart';
 
-class InventoryHomeScreen extends StatefulWidget {
-  const InventoryHomeScreen({super.key});
+class SalesHomeScreen extends StatefulWidget {
+  const SalesHomeScreen({super.key});
 
   @override
-  State<InventoryHomeScreen> createState() => _InventoryHomeScreenState();
+  State<SalesHomeScreen> createState() => _SalesHomeScreenState();
 }
 
 final BarberRepository repository = BarberRepository();
 
-class _InventoryHomeScreenState extends State<InventoryHomeScreen> {
+class _SalesHomeScreenState extends State<SalesHomeScreen> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<AppThemeProvider>(context);
@@ -30,9 +28,6 @@ class _InventoryHomeScreenState extends State<InventoryHomeScreen> {
         child: SingleChildScrollView(
             child: Column(
           children: [
-            // const ButtonTopNavigatorWidget(
-            //   buttonUser: false,
-            // ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: IconAdminWidget(
@@ -49,7 +44,7 @@ class _InventoryHomeScreenState extends State<InventoryHomeScreen> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Text('Inventario',
+                    Text('Ventas',
                         style: themeProvider.theme.textTheme.titleLarge),
                     const SizedBox(
                       height: 50,
@@ -68,23 +63,22 @@ class _InventoryHomeScreenState extends State<InventoryHomeScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => FoodDrinkScreen(
-                                            context: context,
-                                          )));
+                                      builder: (context) =>
+                                          const InfoSalesScreen()));
                             },
-                            photo: 'assets/img/comidasybebidas.png',
-                            text: 'Comidas y Bebidas',
+                            photo: 'assets/img/sales/ventas_logo.png',
+                            text: 'Vender Productos',
                           ),
                           ContainersHomeWidget(
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ProductsScreen()));
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>
+                              //             const ProductsScreen()));
                             },
-                            photo: 'assets/img/productos_3.png',
-                            text: 'Productos',
+                            photo: 'assets/img/barber-pole.png',
+                            text: 'Historial de ventas',
                           ),
                         ],
                       ),

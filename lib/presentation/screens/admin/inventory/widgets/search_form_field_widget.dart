@@ -12,29 +12,24 @@ class SearchFormFieldWidget extends StatefulWidget {
 }
 
 class _SearchFormFieldWidgetState extends State<SearchFormFieldWidget> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   print('Widget initialized');
-  // }
-
+  final TextEditingController _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<AppThemeProvider>(context);
-    final searchModel = Provider.of<ProvidersFoodDrink>(context, listen: false);
-    final TextEditingController _searchController = TextEditingController();
+
+    final providersFoodDrink =
+        Provider.of<ProvidersFoodDrink>(context, listen: false);
 
     return TextFormField(
       controller: _searchController,
       onChanged: (value) {
-        searchModel.updateQuery(
+        providersFoodDrink.updateQuery(
             value); // Actualiza la consulta en el modelo de búsqueda
         if (_searchController.text == '') {
           _searchController.clear();
-          searchModel.updateQuery('');
+          providersFoodDrink.updateQuery('');
         }
       },
-      focusNode: FocusNode(),
       style: themeProvider.theme.textTheme.displayMedium,
       decoration: InputDecoration(
         filled: true,
@@ -50,7 +45,7 @@ class _SearchFormFieldWidgetState extends State<SearchFormFieldWidget> {
             ),
             onPressed: () {
               _searchController.clear();
-              searchModel.updateQuery('');
+              providersFoodDrink.updateQuery('');
             }),
         hintText: 'Ingresa tu búsqueda',
         enabledBorder: OutlineInputBorder(

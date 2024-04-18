@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../providers/theme/app_theme_provider.dart';
+import '../../../providers/theme/app_theme_provider.dart';
 
-class ContainerInventoryWidget extends StatelessWidget {
+class ContainersHomeWidget extends StatelessWidget {
   final String photo;
   final String text;
   final VoidCallback onTap;
-  final double height;
+  final double heightPhoto;
 
-  const ContainerInventoryWidget(
+  const ContainersHomeWidget(
       {super.key,
       required this.photo,
       required this.text,
       required this.onTap,
-      this.height = 90});
+      this.heightPhoto = 90});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class ContainerInventoryWidget extends StatelessWidget {
           children: [
             Image.asset(
               photo,
-              height: height,
+              height: heightPhoto,
             ),
             const SizedBox(
               height: 5,

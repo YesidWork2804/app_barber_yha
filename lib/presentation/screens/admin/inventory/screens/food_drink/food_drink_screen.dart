@@ -1,26 +1,30 @@
-import 'package:app_barber_yha/domain/models/inventory/food_drink/food_drink.dart';
 import 'package:app_barber_yha/infrasctructure/repositories/inventario/foodDrink/food_drink_repositorie.dart';
 import 'package:app_barber_yha/presentation/providers/theme/app_theme_provider.dart';
-import 'package:app_barber_yha/presentation/screens/admin/inventory/widgets/container_filter_widget.dart';
-import 'package:app_barber_yha/presentation/widgets/widgets.dart';
+// import 'package:app_barber_yha/presentation/screens/admin/inventory/widgets/container_filter_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../widgets/container_food_drink_widget.dart';
-import '../../widgets/icon_inventory_widget.dart';
-import '../../widgets/search_form_field_widget.dart';
+import '../../widgets/inventory_widgets.dart';
+import '../inventory_home_screen.dart';
 import 'food_drink_form_screen.dart';
 import 'providers/providers_food_drink.dart';
 
-class FoodDrinkScreen extends StatelessWidget {
-  const FoodDrinkScreen({super.key});
+class FoodDrinkScreen extends StatefulWidget {
+  final BuildContext context;
 
+  const FoodDrinkScreen({super.key, required this.context});
+
+  @override
+  State<FoodDrinkScreen> createState() => _FoodDrinkScreenState();
+}
+
+class _FoodDrinkScreenState extends State<FoodDrinkScreen> {
   @override
   Widget build(BuildContext context) {
     final FoodDrinkRepository repository = FoodDrinkRepository();
-    final searchModel = Provider.of<ProvidersFoodDrink>(
+    final providersFoodDrink = Provider.of<ProvidersFoodDrink>(
       context,
-    ); // Obtén el modelo de búsqueda desde el proveedor
+    );
 
     final themeProvider = Provider.of<AppThemeProvider>(context);
     return Scaffold(
@@ -28,8 +32,18 @@ class FoodDrinkScreen extends StatelessWidget {
         child: SingleChildScrollView(
             child: Column(
           children: [
-            const ButtonTopNavigatorWidget(
-              buttonUser: false,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconAdminWidget(
+                  iconData: Icons.arrow_back_ios,
+                  fuction: () {
+                    providersFoodDrink.updateQuery('');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const InventoryHomeScreen()));
+                  },
+                  text: ''),
             ),
             Center(
               child: SingleChildScrollView(
@@ -39,7 +53,9 @@ class FoodDrinkScreen extends StatelessWidget {
                         style: themeProvider.theme.textTheme.titleLarge),
                     const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20.0),
-                        child: SearchFormFieldWidget()),
+                        child: SearchFieldFoodDrinkWidget(
+                          inventoryType: InventoryType.foodDrink,
+                        )),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30),
                       child: SizedBox(
@@ -49,24 +65,19 @@ class FoodDrinkScreen extends StatelessWidget {
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
-                              return CircularProgressIndicator();
+                              return const CircularProgressIndicator();
                             } else if (snapshot.hasData) {
                               final allFoodDrinks = snapshot.data!;
-                              searchModel.performSearch(allFoodDrinks,
-                                  (foodDrink) {
-                                // Cambia la función de filtro para adaptarse a tu tipo de datos
-                                return foodDrink.nombre
-                                    .toLowerCase()
-                                    .contains(searchModel.query.toLowerCase());
-                              });
+                              providersFoodDrink.performSearch(allFoodDrinks);
                               return Consumer<ProvidersFoodDrink>(
-                                builder: (context, searchModel, child) {
+                                builder: (context, providersFoodDrink, child) {
                                   return ListView.builder(
                                     shrinkWrap: true,
-                                    itemCount: searchModel.searchResults.length,
+                                    itemCount:
+                                        providersFoodDrink.searchResults.length,
                                     itemBuilder: (context, index) {
-                                      final foodDrink =
-                                          searchModel.searchResults[index];
+                                      final foodDrink = providersFoodDrink
+                                          .searchResults[index];
                                       return Padding(
                                         padding: const EdgeInsets.only(top: 18),
                                         child: ContainerFoodDrinkWidget(
@@ -102,20 +113,20 @@ class FoodDrinkScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          IconInventoryWidget(
+                          IconAdminWidget(
                             fuction: () {
                               showSearchModal(context);
                             },
                             iconData: Icons.filter_alt_outlined,
                             text: 'Filtrar',
                           ),
-                          IconInventoryWidget(
+                          IconAdminWidget(
                             fuction: () {},
                             iconData:
                                 Icons.do_not_disturb_on_total_silence_outlined,
                             text: 'Quitar',
                           ),
-                          IconInventoryWidget(
+                          IconAdminWidget(
                             fuction: () {
                               Navigator.push(
                                   context,

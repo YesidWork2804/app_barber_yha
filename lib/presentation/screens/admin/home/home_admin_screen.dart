@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 
 import '../../../widgets/widgets.dart';
 import '../admin_barber/admin_barber.dart';
+import '../clients/admin_clients.dart';
 import '../inventory/screens/inventory_home_screen.dart';
+import '../sales/screens/sales_home_screen.dart';
 
 class HomeAdminScreen extends StatefulWidget {
   const HomeAdminScreen({Key? key}) : super(key: key);
@@ -80,7 +82,13 @@ class _LoginScreenState extends State<HomeAdminScreen> {
                       CardAdmin(
                         text: 'Clientes',
                         image: 'logo_clientes.png',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const AdminClientsScreen()));
+                        },
                       ),
                       CardAdmin(
                         text: 'Agendar Turno',
@@ -90,7 +98,13 @@ class _LoginScreenState extends State<HomeAdminScreen> {
                       CardAdmin(
                         text: 'Ventas',
                         image: 'logo_ventas.png',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const SalesHomeScreen()));
+                        },
                       ),
                       CardAdmin(
                         text: 'Reportes',

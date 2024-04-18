@@ -1,5 +1,5 @@
 import 'package:app_barber_yha/presentation/providers/providers.dart';
-import 'package:app_barber_yha/presentation/screens/admin/inventory/widgets/icon_inventory_widget.dart';
+import 'package:app_barber_yha/presentation/screens/admin/widgets/icon_inventory_widget.dart';
 import 'package:app_barber_yha/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -71,11 +71,11 @@ class InfoFoodDrinkWidget extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        IconInventoryWidget(
+                        IconAdminWidget(
                             text: 'Eliminar',
                             iconData: Icons.delete,
                             fuction: () {}),
-                        IconInventoryWidget(
+                        IconAdminWidget(
                             text: 'Editar',
                             iconData: Icons.edit,
                             fuction: () {})

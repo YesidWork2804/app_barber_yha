@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../providers/providers.dart';
-import '../../../../widgets/widgets.dart';
+import '../../../providers/providers.dart';
+import '../../../widgets/widgets.dart';
 
-class IconInventoryWidget extends StatelessWidget {
+class IconAdminWidget extends StatelessWidget {
   final String text;
   final IconData iconData;
   final VoidCallback fuction;
 
-  const IconInventoryWidget(
+  const IconAdminWidget(
       {super.key,
       required this.text,
       required this.iconData,

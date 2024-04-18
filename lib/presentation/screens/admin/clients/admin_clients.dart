@@ -1,21 +1,22 @@
+import 'package:app_barber_yha/infrasctructure/repositories/clients/client_repository.dart';
 import 'package:app_barber_yha/presentation/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../infrasctructure/repositories/barbers/barber_repository.dart';
-import '../../../../widgets/widgets.dart';
-import '../admin_barber.dart';
+import '../../../widgets/widgets.dart';
+import '../admin_barber/admin_barber.dart';
+import 'screens/card_client_widget.dart';
 
-class AdminBarbersScreen extends StatefulWidget {
-  const AdminBarbersScreen({super.key});
+class AdminClientsScreen extends StatefulWidget {
+  const AdminClientsScreen({super.key});
 
   @override
-  State<AdminBarbersScreen> createState() => _AdminBarbersScreenState();
+  State<AdminClientsScreen> createState() => _AdminClientsScreenState();
 }
 
-final BarberRepository repository = BarberRepository();
+final ClientRepository repository = ClientRepository();
 
-class _AdminBarbersScreenState extends State<AdminBarbersScreen> {
+class _AdminClientsScreenState extends State<AdminClientsScreen> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<AppThemeProvider>(context);
@@ -32,14 +33,14 @@ class _AdminBarbersScreenState extends State<AdminBarbersScreen> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Text('Barberos',
+                    Text('Clientes',
                         style: themeProvider.theme.textTheme.titleLarge),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: SizedBox(
                         height: 500,
                         child: FutureBuilder(
-                            future: repository.getBarbers(),
+                            future: repository.getClients(),
                             builder: (context, snapshot) {
                               if (snapshot.connectionState ==
                                   ConnectionState.waiting) {
@@ -47,20 +48,18 @@ class _AdminBarbersScreenState extends State<AdminBarbersScreen> {
                               }
                               // Si hay datos disponibles, muestra el mensaje
                               else if (snapshot.hasData) {
-                                final barbers = snapshot.data!;
+                                final clients = snapshot.data!;
                                 return ListView.builder(
                                   shrinkWrap: true,
-                                  itemCount: barbers.length,
+                                  itemCount: clients.length,
                                   itemBuilder: (context, index) {
-                                    final barber = barbers[index];
+                                    final client = clients[index];
                                     return Padding(
                                       padding: const EdgeInsets.only(top: 18),
-                                      child: CardBarberWidget(
-                                        cantidadTurno: barber.cantidadTurnos,
-                                        estado: barber.estaActivo,
-                                        nombre: barber.nombre,
-                                        telefono: barber.telefono,
-                                        foto: barber.foto,
+                                      child: CardClientWidget(
+                                        nombre: client.nombre,
+                                        telefono: client.telefono,
+                                        foto: client.foto,
                                       ),
                                     );
                                   },
@@ -80,7 +79,7 @@ class _AdminBarbersScreenState extends State<AdminBarbersScreen> {
                             MaterialPageRoute(
                                 builder: (context) => const AdminFormScreen()));
                       },
-                      labelButton: 'Nuevo Barbero',
+                      labelButton: 'Nuevo Cliente',
                     ),
                   ],
                 ),

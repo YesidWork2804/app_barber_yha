@@ -35,6 +35,7 @@ flutter:
     - assets/img/admin/
     - assets/img/drinkFood/
     - assets/img/products/
+    - assets/img/sales/
 
   fonts:
     - family: Jolly_Lodger

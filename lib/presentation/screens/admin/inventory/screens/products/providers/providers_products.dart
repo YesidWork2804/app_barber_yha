@@ -14,9 +14,9 @@ class ProvidersProducts extends ChangeNotifier {
   }
 
   void performSearch(List<Product> allProducts) {
-    _searchResults = allProducts.where((foodDrink) {
+    _searchResults = allProducts.where((products) {
       // Filtrar según la consulta
-      return foodDrink.nombre.toLowerCase().contains(_query.toLowerCase());
+      return products.nombre.toLowerCase().contains(_query.toLowerCase());
     }).toList();
   }
 }

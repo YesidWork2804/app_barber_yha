@@ -10,16 +10,16 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../providers/providers.dart';
+import '../../../providers/providers.dart';
 
-class AdminFormBarberScreen extends StatefulWidget {
-  const AdminFormBarberScreen({super.key});
+class AdminFormScreen extends StatefulWidget {
+  const AdminFormScreen({super.key});
 
   @override
-  State<AdminFormBarberScreen> createState() => _AdminFormBarberScreenState();
+  State<AdminFormScreen> createState() => _AdminFormScreenState();
 }
 
-class _AdminFormBarberScreenState extends State<AdminFormBarberScreen> {
+class _AdminFormScreenState extends State<AdminFormScreen> {
   File? _imageFile;
 
   Future<void> _pickImage(ImageSource source) async {
