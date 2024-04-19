@@ -5,18 +5,19 @@ import 'package:provider/provider.dart';
 
 import '../../../widgets/widgets.dart';
 import '../admin_barber/admin_barber.dart';
+import 'screens/admin_client_info_screen.dart';
 import 'screens/card_client_widget.dart';
 
-class AdminClientsScreen extends StatefulWidget {
-  const AdminClientsScreen({super.key});
+class AdminClientsHomeScreen extends StatefulWidget {
+  const AdminClientsHomeScreen({super.key});
 
   @override
-  State<AdminClientsScreen> createState() => _AdminClientsScreenState();
+  State<AdminClientsHomeScreen> createState() => _AdminClientsHomeScreenState();
 }
 
 final ClientRepository repository = ClientRepository();
 
-class _AdminClientsScreenState extends State<AdminClientsScreen> {
+class _AdminClientsHomeScreenState extends State<AdminClientsHomeScreen> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<AppThemeProvider>(context);
@@ -57,6 +58,18 @@ class _AdminClientsScreenState extends State<AdminClientsScreen> {
                                     return Padding(
                                       padding: const EdgeInsets.only(top: 18),
                                       child: CardClientWidget(
+                                        ontap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      AdminClientInfo(
+                                                        nombre: client.nombre,
+                                                        foto: client.foto,
+                                                        telefono:
+                                                            client.telefono,
+                                                      )));
+                                        },
                                         nombre: client.nombre,
                                         telefono: client.telefono,
                                         foto: client.foto,

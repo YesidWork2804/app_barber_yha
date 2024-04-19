@@ -2,17 +2,17 @@ import 'package:app_barber_yha/presentation/providers/theme/app_theme_provider.d
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'admin_client_info_screen.dart';
-
 class CardClientWidget extends StatelessWidget {
   final String nombre;
   final String telefono;
   final String foto;
+  final VoidCallback ontap;
   const CardClientWidget({
     super.key,
     this.foto = '',
     required this.nombre,
     required this.telefono,
+    required this.ontap,
   });
 
   @override
@@ -20,21 +20,25 @@ class CardClientWidget extends StatelessWidget {
     final themeProvider = Provider.of<AppThemeProvider>(context);
 
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => AdminClientInfo(
-                      nombre: nombre,
-                      foto: foto,
-                      telefono: telefono,
-                    )));
-      },
+      onTap: ontap,
+      // Navigator.push(
+      //     context,
+      //     MaterialPageRoute(
+      //         builder: (context) => AdminClientInfo(
+      //               nombre: nombre,
+      //               foto: foto,
+      //               telefono: telefono,
+      //             )));
+
       child: SizedBox(
-        height: 109,
-        width: 343,
+        width: 340,
+        height: 120,
+        // width: 343,
+        // height: 109,
         child: Container(
-          color: themeProvider.theme.cardColor,
+          decoration: BoxDecoration(
+              color: themeProvider.theme.cardColor,
+              borderRadius: BorderRadius.circular(10)),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

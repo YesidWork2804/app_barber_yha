@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../widgets/widgets.dart';
 import '../admin_barber/admin_barber.dart';
-import '../clients/admin_clients.dart';
+import '../clients/admin_clients_home.dart';
 import '../inventory/screens/inventory_home_screen.dart';
 import '../sales/screens/sales_home_screen.dart';
 
@@ -87,7 +87,7 @@ class _LoginScreenState extends State<HomeAdminScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const AdminClientsScreen()));
+                                      const AdminClientsHomeScreen()));
                         },
                       ),
                       CardAdmin(

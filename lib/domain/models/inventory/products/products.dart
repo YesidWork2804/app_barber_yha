@@ -5,8 +5,10 @@ class Product {
   final int unidades;
   final String foto;
   final String descripcion;
+  final String category;
 
   Product({
+    required this.category,
     required this.descripcion,
     required this.foto,
     required this.nombre,

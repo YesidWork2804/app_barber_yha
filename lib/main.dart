@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'presentation/providers/providers.dart';
 import 'presentation/screens/admin/inventory/screens/food_drink/providers/providers_food_drink.dart';
+import 'presentation/screens/admin/sales/providers/providers_sales.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +23,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => ProvidersProducts(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ProvidersSales(),
         ),
       ],
       child: const MyApp(),

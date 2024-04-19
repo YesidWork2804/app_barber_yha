@@ -7,20 +7,23 @@ class ProductRepository implements ProductsRepository {
     // Aquí retornarías una lista de barberos de prueba
     return [
       Product(
+          category: 'foodDrink',
           nombre: 'Crema para peinar',
           foto: 'assets/img/products/logo_crema.png',
           precio: 3100,
-          unidades: 1,
+          unidades: 62,
           descripcion:
               'Es hidratada y con un aspecto saludable. También puede ser útil para reducir la picazón y la irritación asociadas con el crecimiento de la barba.'),
       Product(
+          category: 'foodDrink',
           nombre: 'Locion para barba',
           foto: 'assets/img/products/logo_locion.png',
           precio: 3100,
-          unidades: 1,
+          unidades: 12,
           descripcion:
               'Es un producto útil para hombres con barba que desean mantenerla suave, hidratada y con un aspecto saludable. También puede ser útil para reducir la picazón y la irritación asociadas con el crecimiento de la barba.'),
       Product(
+          category: 'foodDrink',
           nombre: 'Tinte para cabello',
           foto: 'assets/img/products/logo_tinte.png',
           precio: 3100,
