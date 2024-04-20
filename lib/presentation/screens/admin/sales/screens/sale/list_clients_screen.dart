@@ -6,10 +6,10 @@ import 'package:app_barber_yha/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../providers/providers.dart';
-import '../../clients/screens/card_client_widget.dart';
-import '../widgets/search_clients_widgets.dart';
-import 'info_sales_screen.dart';
+import '../../../../../providers/providers.dart';
+import '../../../clients/screens/card_client_widget.dart';
+import '../../../clients/widgets/search_clients_widgets.dart';
+import 'sale.dart';
 
 class ListClientsScreen extends StatelessWidget {
   const ListClientsScreen({super.key});
@@ -25,8 +25,26 @@ class ListClientsScreen extends StatelessWidget {
           child: SingleChildScrollView(
         child: Column(
           children: [
-            const ButtonTopNavigatorWidget(
-              buttonUser: false,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: MyIconAppWidget(
+                    fuction: () {
+                      providersSales.updateQuery('');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const InfoSalesScreen(),
+                        ),
+                      );
+                    },
+                    icon: Icons.arrow_back_ios,
+                  ),
+                ),
+                const SizedBox()
+              ],
             ),
             Text(
               'Clientes',
@@ -81,7 +99,7 @@ class ListClientsScreen extends StatelessWidget {
                                   ),
                                   child: CardClientWidget(
                                     ontap: () {
-                                      Clients clientSelect = Clients(
+                                      Client clientSelect = Client(
                                           foto: client.foto,
                                           nombre: client.nombre,
                                           telefono: client.telefono);

@@ -1,5 +1,5 @@
 export 'container_filter_widget.dart';
-export 'container_food_drink_widget.dart';
+export 'container_food_drink_article_widget.dart';
 export '../../widgets/containers_home_widget.dart';
 export 'drop_down_button_widget.dart';
 export 'form_food_drink_form_widget.dart';

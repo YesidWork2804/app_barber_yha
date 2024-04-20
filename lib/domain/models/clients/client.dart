@@ -1,10 +1,10 @@
 // barbero.dart
-class Clients {
+class Client {
   final String nombre;
   final String telefono;
   final String foto;
 
-  Clients({
+  Client({
     required this.foto,
     required this.nombre,
     required this.telefono,
@@ -13,5 +13,5 @@ class Clients {
 
 // Client_repository.dart
 abstract class ClientsRepository {
-  Future<List<Clients>> getClients();
+  Future<List<Client>> getClients();
 }

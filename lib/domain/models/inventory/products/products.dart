@@ -1,8 +1,8 @@
 // barbero.dart
 class Product {
   final String nombre;
-  final int precio;
-  final int unidades;
+  int precio;
+  int unidades;
   final String foto;
   final String descripcion;
   final String category;

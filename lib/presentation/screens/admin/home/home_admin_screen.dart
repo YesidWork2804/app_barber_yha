@@ -7,7 +7,7 @@ import '../../../widgets/widgets.dart';
 import '../admin_barber/admin_barber.dart';
 import '../clients/admin_clients_home.dart';
 import '../inventory/screens/inventory_home_screen.dart';
-import '../sales/screens/sales_home_screen.dart';
+import '../sales/sales_home_screen.dart';
 
 class HomeAdminScreen extends StatefulWidget {
   const HomeAdminScreen({Key? key}) : super(key: key);

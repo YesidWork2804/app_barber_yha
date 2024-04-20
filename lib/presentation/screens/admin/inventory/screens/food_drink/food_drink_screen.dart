@@ -1,4 +1,4 @@
-import 'package:app_barber_yha/infrasctructure/repositories/inventario/foodDrink/food_drink_repositorie.dart';
+import 'package:app_barber_yha/infrasctructure/repositories/inventario/products/product_repositorie.dart';
 import 'package:app_barber_yha/presentation/providers/theme/app_theme_provider.dart';
 // import 'package:app_barber_yha/presentation/screens/admin/inventory/widgets/container_filter_widget.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,7 @@ class FoodDrinkScreen extends StatefulWidget {
 class _FoodDrinkScreenState extends State<FoodDrinkScreen> {
   @override
   Widget build(BuildContext context) {
-    final FoodDrinkRepository repository = FoodDrinkRepository();
+    final ProductRepository repository = ProductRepository();
     final providersFoodDrink = Provider.of<ProvidersFoodDrink>(
       context,
     );
@@ -61,7 +61,7 @@ class _FoodDrinkScreenState extends State<FoodDrinkScreen> {
                       child: SizedBox(
                         height: 550,
                         child: FutureBuilder(
-                          future: repository.getFoodDrink(),
+                          future: repository.getproducts(),
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
@@ -80,7 +80,7 @@ class _FoodDrinkScreenState extends State<FoodDrinkScreen> {
                                           .searchResults[index];
                                       return Padding(
                                         padding: const EdgeInsets.only(top: 18),
-                                        child: ContainerFoodDrinkWidget(
+                                        child: ContainerFoodDrinkArticleWidget(
                                           nombre: foodDrink.nombre,
                                           foto: foodDrink.foto,
                                           precio: foodDrink.precio,

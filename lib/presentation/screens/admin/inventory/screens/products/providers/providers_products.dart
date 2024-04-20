@@ -13,10 +13,11 @@ class ProvidersProducts extends ChangeNotifier {
     notifyListeners();
   }
 
-  void performSearch(List<Product> allProducts) {
-    _searchResults = allProducts.where((products) {
-      // Filtrar según la consulta
-      return products.nombre.toLowerCase().contains(_query.toLowerCase());
+  void performSearch(List<Product> allFoodDrinks) {
+    _searchResults = allFoodDrinks.where((foodDrink) {
+      // Filtrar según la consulta y la categoría
+      return foodDrink.nombre.toLowerCase().contains(_query.toLowerCase()) &&
+          foodDrink.category.toLowerCase() == 'article';
     }).toList();
   }
 }

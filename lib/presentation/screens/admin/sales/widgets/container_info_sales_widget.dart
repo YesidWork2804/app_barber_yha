@@ -20,7 +20,7 @@ class ContainerInfoSalesWidget extends StatelessWidget {
       // Navigator.push(context,
       //     MaterialPageRoute(builder: (context) => const ListClientsScreen()));
       child: Container(
-        width: 340,
+        width: 360,
         height: 120,
         decoration: BoxDecoration(
           color: themeProvider.theme.cardColor, // Color de fondo del container

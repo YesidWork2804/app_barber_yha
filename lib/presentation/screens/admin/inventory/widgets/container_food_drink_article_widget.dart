@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../../providers/theme/app_theme_provider.dart';
 import 'inventory_widgets.dart';
 
-class ContainerFoodDrinkWidget extends StatelessWidget {
+class ContainerFoodDrinkArticleWidget extends StatelessWidget {
   final String foto;
   final String nombre;
   final String descripcion;
@@ -14,15 +14,16 @@ class ContainerFoodDrinkWidget extends StatelessWidget {
   final int precio;
   final int unidades;
 
-  const ContainerFoodDrinkWidget(
-      {super.key,
-      // required this.onTap,
-      this.height = 80,
-      required this.foto,
-      required this.nombre,
-      required this.precio,
-      required this.unidades,
-      required this.descripcion});
+  const ContainerFoodDrinkArticleWidget({
+    super.key,
+    // required this.onTap,
+    this.height = 80,
+    required this.foto,
+    required this.nombre,
+    required this.precio,
+    required this.unidades,
+    this.descripcion = '',
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -80,7 +80,7 @@ class ProductsScreen extends StatelessWidget {
                                           searchModel.searchResults[index];
                                       return Padding(
                                         padding: const EdgeInsets.only(top: 18),
-                                        child: ContainerFoodDrinkWidget(
+                                        child: ContainerFoodDrinkArticleWidget(
                                           nombre: products.nombre,
                                           foto: products.foto,
                                           precio: products.precio,

@@ -1,10 +1,11 @@
 import 'package:app_barber_yha/presentation/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../../../../infrasctructure/repositories/barbers/barber_repository.dart';
-import '../../home/home_admin_screen.dart';
-import '../../inventory/widgets/inventory_widgets.dart';
-import 'info_sales_screen.dart';
+import '../../../../../infrasctructure/repositories/barbers/barber_repository.dart';
+import '../home/home_admin_screen.dart';
+import '../inventory/widgets/inventory_widgets.dart';
+import 'screens/history_sales/history_sales_home.dart';
+import 'screens/sale/info_sales_screen.dart';
 
 class SalesHomeScreen extends StatefulWidget {
   const SalesHomeScreen({super.key});
@@ -71,11 +72,11 @@ class _SalesHomeScreenState extends State<SalesHomeScreen> {
                           ),
                           ContainersHomeWidget(
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) =>
-                              //             const ProductsScreen()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const HistorySalesHome()));
                             },
                             photo: 'assets/img/barber-pole.png',
                             text: 'Historial de ventas',

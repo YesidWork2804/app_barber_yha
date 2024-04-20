@@ -7,6 +7,7 @@ import '../../../widgets/widgets.dart';
 import '../admin_barber/admin_barber.dart';
 import 'screens/admin_client_info_screen.dart';
 import 'screens/card_client_widget.dart';
+import 'widgets/search_clients_widgets.dart';
 
 class AdminClientsHomeScreen extends StatefulWidget {
   const AdminClientsHomeScreen({super.key});
@@ -36,6 +37,10 @@ class _AdminClientsHomeScreenState extends State<AdminClientsHomeScreen> {
                   children: [
                     Text('Clientes',
                         style: themeProvider.theme.textTheme.titleLarge),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: SearchClientsWidget(),
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: SizedBox(
