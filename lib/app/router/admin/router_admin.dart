@@ -1,7 +1,7 @@
-import 'package:app_barber_yha/presentation/screens/admin/home/home_admin_screen.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../presentation/screens/admin/admin_barber/admin_barber.dart';
+import '../../../ui/screens/admin/admin_barber/admin_barber.dart';
+import '../../../ui/screens/admin/home/home_admin_screen.dart';
 
 // GoRoute routesAdmin = GoRoute(
 //     path: 'admin_home', routes: [GoRoute(path: '/admin_home/inventario')]);

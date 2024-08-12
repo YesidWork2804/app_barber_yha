@@ -1,14 +1,15 @@
 import 'package:app_barber_yha/app/router/routes_app.dart';
-import 'package:app_barber_yha/presentation/screens/admin/inventory/screens/products/providers/providers_products.dart';
+import 'package:app_barber_yha/ui/providers/app/providers_app.dart';
+import 'package:app_barber_yha/ui/providers/theme/app_theme_provider.dart';
+import 'package:app_barber_yha/ui/screens/admin/sales/providers/providers_sales.dart';
+import 'package:app_barber_yha/ui/screens/admin/sales/screens/history_sales/providers/providers_history_sales.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'presentation/providers/providers.dart';
-import 'presentation/screens/admin/inventory/screens/food_drink/providers/providers_food_drink.dart';
-import 'presentation/screens/admin/sales/providers/providers_sales.dart';
-import 'presentation/screens/admin/sales/screens/history_sales/providers/providers_history_sales.dart';
+
+import 'ui/screens/admin/inventory/screens/food_drink/providers/providers_food_drink.dart';
+import 'ui/screens/admin/inventory/screens/products/providers/providers_products.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [
